@@ -13,6 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the docker image
-      run: docker build . --file Dockerfile --tag anclaev/com:$(date +%s)
+    - name: Сборка образа и деплой в Docker Hub
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: anclaev/com
+        tags: latest
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: Dockerfile
