@@ -1,21 +1,15 @@
-import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
 import { Roboto } from 'next/font/google'
 import { Metadata } from 'next'
 
-import '../globals.css'
+import './globals.css'
 
-import type { ParamsWithLocale } from '@interfaces/locale'
+import type { Locale } from '@interfaces/locale'
 
 const roboto = Roboto({ subsets: ['cyrillic'], weight: ['300', '400', '500'] })
 
-export function generateMetadata({
-  params,
-}: {
-  params: ParamsWithLocale
-}): Metadata {
+export function generateMetadata(): Metadata {
   const ogImageUrl = new URL(
-    `${process.env.ORIGIN ?? 'http://localhost'}/assets/og-${params.locale}.jpg`
+    `${process.env.ORIGIN ?? 'http://localhost'}/assets/og-en.jpg`
   )
 
   return {
@@ -62,8 +56,8 @@ export function generateMetadata({
     openGraph: {
       type: 'website',
       title: 'anclaev',
-      description: `Fullstack-${params.locale === 'ru' ? 'разработчик' : 'developer'}`,
-      locale: params.locale,
+      description: 'Fullstack-developer',
+      locale: 'en',
       images: [
         {
           type: 'image/jpeg',
@@ -80,16 +74,12 @@ export function generateMetadata({
 
 export default async function RootLayout({
   children,
-  params: { locale },
 }: Readonly<{
   children: React.ReactNode
-  params: ParamsWithLocale
 }>) {
   return (
-    <html lang={locale}>
-      <NextIntlClientProvider messages={await getMessages()}>
-        <body className={roboto.className}>{children}</body>
-      </NextIntlClientProvider>
+    <html lang='en'>
+      <body className={roboto.className}>{children}</body>
     </html>
   )
 }

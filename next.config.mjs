@@ -7,8 +7,9 @@ const withNextIntl = createNextIntlPlugin(
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   optimizeFonts: true,
+  output: 'standalone',
   compress: true,
-  reactStrictMode: true
+  reactStrictMode: true,
 }
 
 export default withNextIntl(nextConfig)
