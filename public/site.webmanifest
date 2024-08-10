@@ -1,0 +1,26 @@
+{
+  "name": "anclaev",
+  "short_name": "anclaev",
+  "description": "Fullstack-разработчик",
+  "theme_color": "#4B4B4B",
+  "background_color": "#040d29",
+  "orientation": "portrait",
+  "display": "standalone",
+  "display_override": ["fullscreen", "minimal-ui"],
+  "scope": "./",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/assets/fav/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/fav/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
