@@ -107,14 +107,14 @@ jobs:
             cd ${{ secrets.SSH_PATH }}
             docker pull anclaev/com:dev
 
-#      - name: Run app
-#        uses: appleboy/ssh-action@v1.0.3
-#        with:
-#          host: ${{ secrets.SSH_IP }}
-#          username: ${{ secrets.SSH_USER }}
-#          key: ${{ secrets.SSH_PRIVATE_KEY }}
-#          passphrase: ${{ secrets.SSH_PASSPHRASE }}
-#          script: |
-#            cd ${{ secrets.SSH_PATH }}
-#            ./scripts/init-staging.sh dev
-#            docker system prune -f
+      - name: Run app
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_IP }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          script: |
+            cd ${{ secrets.SSH_PATH }}
+            ./init-staging.sh
+            docker system prune -f
