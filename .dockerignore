@@ -1,0 +1,12 @@
+.husky
+.github
+.next
+node_modules
+.editorconfig
+.eslintignore
+.eslintrc.json
+.gitignore
+.prettierignore
+.prettierrc
+README.md
+CHANGELOG.md

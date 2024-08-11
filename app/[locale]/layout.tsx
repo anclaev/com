@@ -1,5 +1,3 @@
-import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
 import { Roboto } from 'next/font/google'
 import { Metadata } from 'next'
 
@@ -80,16 +78,14 @@ export function generateMetadata({
 
 export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: Readonly<{
   children: React.ReactNode
   params: ParamsWithLocale
 }>) {
   return (
-    <html lang={locale}>
-      <NextIntlClientProvider messages={await getMessages()}>
-        <body className={roboto.className}>{children}</body>
-      </NextIntlClientProvider>
+    <html lang={params.locale}>
+      <body className={roboto.className}>{children}</body>
     </html>
   )
 }

@@ -1,8 +1,4 @@
-import createNextIntlPlugin from 'next-intl/plugin'
-
-const withNextIntl = createNextIntlPlugin(
-  './app/common/locales/i18n.ts',
-)
+import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -12,4 +8,11 @@ const nextConfig = {
   reactStrictMode: true
 }
 
-export default withNextIntl(nextConfig)
+export default withSentryConfig(nextConfig, {
+  org: 'anclaev-ti',
+  project: 'anclaev-com',
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  silent: false,
+  hideSourceMaps: true,
+  widenClientFileUpload: true,
+})

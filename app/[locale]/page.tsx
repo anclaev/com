@@ -1,5 +1,4 @@
-import { getTranslations } from 'next-intl/server'
-import { useTranslations } from 'next-intl'
+import { getLocales } from '@utils/get-locales'
 
 import { ParamsWithLocale } from '@interfaces/locale'
 
@@ -8,17 +7,15 @@ export async function generateMetadata({
 }: {
   params: ParamsWithLocale
 }) {
-  const t = await getTranslations({ locale, namespace: 'Home' })
+  const t = await getLocales(locale)
 
   return {
-    title: t('title'),
-    description: t('description'),
+    title: t.Home.title,
+    description: t.Home.description,
   }
 }
 
 export default function Home() {
-  const t = useTranslations('Home')
-
   return (
     <main className='flex min-h-screen flex-col items-center justify-between p-24'>
       Hi!

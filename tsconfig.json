@@ -26,11 +26,11 @@
       "@/*": [
         "./*"
       ],
-      "@locales/*": [
-        "./app/common/locales/*"
-      ],
       "@interfaces/*": [
         "./app/common/interfaces/*"
+      ],
+      "@utils/*": [
+        "./app/common/utils/*"
       ]
     }
   },

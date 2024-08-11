@@ -1,4 +1,4 @@
-import en from './app/common/locales/en.json'
+import en from '@/locales/en.json'
 
 type Messages = typeof en
 

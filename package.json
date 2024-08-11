@@ -15,8 +15,10 @@
     "release": "npx standard-version -s --release-as"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
+    "@sentry/nextjs": "^8.25.0",
+    "negotiator": "^0.6.3",
     "next": "14.2.5",
-    "next-intl": "^3.17.2",
     "react": "^18",
     "react-dom": "^18"
   },
